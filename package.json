@@ -1,0 +1,27 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "Microsoft Playwright Demo with TypeScript",
+  "scripts": {
+    "browser:install": "playwright install",
+    "tsc:compile": "rm -rf ./test-out && tsc --incremental -p tsconfig.json && cp -r ./env ./test-out/env",
+    "test:prod": "yarn tsc:compile && cross-env TEST_ENV=production playwright test --trace on -c test-out",
+    "report:last-run": "playwright show-report"
+  },
+  "author": "Travis Ren",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.11.25",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.42.1",
+    "dotenv": "^16.4.5",
+    "reflect-metadata": "^0.2.1",
+    "tsyringe": "^4.8.0"
+  }
+}
